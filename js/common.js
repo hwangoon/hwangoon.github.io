@@ -4,18 +4,20 @@ $(document).ready(function() {
 	var APPNAME = getParm('name');
 	
 	var list = '';
-	$(List).each(function() {
-		is_active = false;
-		if(this[0] == APPNAME) {
-			is_active = true;
-		}
-		list += '<a href="index.html?name='+this[0]+'" class="list-group-item'+
-			(is_active ? ' active':'')+
-			'">'+
-			this[1]+
-			'</a>';
-	});
-	$('.list-group').append(list);
+	if(List) {
+		$(List).each(function() {
+			is_active = false;
+			if(this[0] == APPNAME) {
+				is_active = true;
+			}
+			list += '<a href="index.html?name='+this[0]+'" class="list-group-item'+
+				(is_active ? ' active':'')+
+				'">'+
+				this[1]+
+				'</a>';
+		});
+		$('.list-group').append(list);
+	}
 
 	if(is_mobile() == false) {
 		$('button.ks').hide();
