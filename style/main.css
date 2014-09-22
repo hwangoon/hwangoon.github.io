@@ -16,7 +16,8 @@ body h1:first-child { margin-top: 0; }
 	font-size: 1.5em;
 }
 
-.content > #app-input .text-input {
+.content > #app-input .text-input,
+.content > #app-input .select-input {
 	font-size:1.3em;
 	text-align:center;
 	clear:both;
