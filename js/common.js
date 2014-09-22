@@ -5,12 +5,13 @@ $(document).ready(function() {
 	
 	var list = '';
 	if(typeof List != 'undefined') {
+		List = array_shuffle(List);
 		$(List).each(function() {
 			is_active = false;
 			if(this[0] == APPNAME) {
 				is_active = true;
 			}
-			list += '<a href="index.html?name='+this[0]+'" class="list-group-item'+
+			list += '<a href="?name='+this[0]+'" class="list-group-item'+
 				(is_active ? ' active':'')+
 				'">'+
 				this[1]+
@@ -134,3 +135,10 @@ function is_mobile(){
 		return false;
 	}
 }
+
+//+ Jonas Raoni Soares Silva
+//@ http://jsfromhell.com/array/shuffle [v1.0]
+function array_shuffle(o){ //v1.0
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
