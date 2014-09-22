@@ -32,7 +32,6 @@ App.getResult = function() {
 		return name+"님의 "+type+" 주량은 "+rnd1+App.data[0][rnd]+"입니다.";
 	}
 }
-App.data = [];
-App.data[0] = [
-	'병','잔','방울','사발','대접','미리','리터','톤'
-]
+App.data = [
+	['병','잔','방울','사발','대접','미리','리터','톤']
+];
