@@ -2,21 +2,29 @@ var timer;
 
 $(document).ready(function() {
 	var APPNAME = getParm('name');
+	
+	var list = '';
+	$(List).each(function() {
+		list += '<li><a href="index.html?name='+this[1]+'">'+this[0]+'</a></li>';
+	});
+	$('.list > ul').append(list);
 
 	if(is_mobile() == false) {
 		$('button.ks').hide();
 		$('button.kt').hide();
 		alert("카카오스토리, 카톡으로 결과보기 기능은 모바일에서만 가능합니다.");
 	}
-	if(APPNAME != null) {
+	if(APPNAME != null && APPNAME != '') {
 		loadFile('./data/'+APPNAME+'.js', 'js');
 		timer = setInterval("checkLoadFile('./data/"+APPNAME+".js', 'js', init)", 300);
 	} else {
-		alert('error');
+		$('.content').hide();
+		$('.list > h2').text('카카오테스트');
 	}
 });
 
 var init = function() {
+	$('title').text(App.title + ' - ' +$('title').text());
 	$('#app-title').text(App.title);
 	$('#app-desc').text(App.desc);
 	$('#app-input').html(App.input);
