@@ -109,10 +109,12 @@ function loadFile(filename, filetype){
 var filesadded=""
 function checkLoadFile(filename, filetype, cb){
  if (filesadded.indexOf("["+filename+"]")==-1){
-  loadFile(filename, filetype)
-  filesadded+="["+filename+"]" //List of files added in the form "[filename1],[filename2],etc"
-  clearInterval(timer);
-	cb();
+	loadFile(filename, filetype)
+	filesadded+="["+filename+"]" //List of files added in the form "[filename1],[filename2],etc"
+	if(typeof App != 'undefined') {
+		clearInterval(timer);
+		cb();
+	}
  }
  else
   return null;
