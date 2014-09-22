@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var APPNAME = getParm('name');
 	
 	var list = '';
-	if(List) {
+	if(typeof List != 'undefined') {
 		$(List).each(function() {
 			is_active = false;
 			if(this[0] == APPNAME) {
