@@ -4,7 +4,7 @@ var TYPE;
 var CURRENT_URL = window.location.toString();
 $(document).ready(function() {
 	APPNAME = getParm('name');
-	TYPE = getParm('type') ? getParm('type') : 'play';
+	TYPE = getParm('type') ? decodeURIComponent(getParm('type')) : 'play';
 	
 	var list = '';
 	if(typeof List != 'undefined') {
