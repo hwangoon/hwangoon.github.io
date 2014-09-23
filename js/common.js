@@ -1,7 +1,10 @@
 var timer;
-
+var APPNAME;
+var TYPE;
+var CURRENT_URL = window.location.toString();
 $(document).ready(function() {
-	var APPNAME = getParm('name');
+	APPNAME = getParm('name');
+	TYPE = getParm('type') ? getParm('type') : 'play';
 	
 	var list = '';
 	if(typeof List != 'undefined') {
@@ -19,6 +22,8 @@ $(document).ready(function() {
 		});
 		$('.list-group').append(list);
 	}
+	
+	$('.result').hide();
 
 	if(is_mobile() == false) {
 		$('button.ks').hide();
@@ -36,6 +41,20 @@ $(document).ready(function() {
 });
 
 var init = function() {
+	if(TYPE == 'result') {
+		var result = App.result;
+		var vars = JSON.parse(getParm('vars'));
+		for(i=0; i<vars.length; i++) {
+			pattern = "\%var"+(i+1)+"\%";
+			var regexp = new RegExp(pattern, "gi");
+			result = result.replace(regexp, '<span class="text-danger">'+vars[i]+'</span>');
+		}
+		
+		$('#result-app-title').text("'"+App.title+"' 실행결과:");
+		$('#result-body').html(result);
+		
+		$('.result').show();
+	}
 	$('title').text(App.title + ' - ' +$('title').text());
 	$('#app-title').text(App.title);
 	$('#app-desc').text(App.desc);
@@ -50,13 +69,14 @@ var getResult = function(type) {
 		if(type == "ks") {
 			//카카오스토리
 			kakao.link("story").send({
-				post: resultText+"\n\n테스트하러가기\n"+window.location,
+				post: '['+App.title+'] 실행결과\n\'올리기\'버튼을 누른 후 아래 링크에서 확인해 주세요.\n\n'
+					+App.resultUrl,
 				appid:window.location+ Math.floor(Math.random()*100000),
 				appver:"1.0",
 				appname:App.title,
 				urlinfo:JSON.stringify({
-					title:'['+App.title+']',
-					desc:App.desc,
+					title:'['+App.title+'] 실행결과',
+					desc:'['+App.title+'] 실행 결과를 확인하려면 이곳을 누르세요.',
 					imageurl:[App.thumbnail],
 					type:"article"})
 			});

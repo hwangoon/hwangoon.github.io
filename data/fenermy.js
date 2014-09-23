@@ -3,6 +3,8 @@ App.title = "전생의 원수";
 App.desc = "전생의 원수를 알아봅니다. 결과는 재미로 봐주세요 ^^";
 App.thumbnail = "http://cfile1.uf.tistory.com/image/17777D4C4FB8E7EF014420";
 App.input = '<input text="text" placeholder="이름을 입력해주세요." id="input-name" class="text-input" required="true">';
+App.result = "%var1%님의 전생의 원수는 %var2%입니다.";
+App.resultUrl = window.location;
 App.getResult = function() {
 	var rnd = getRandomNumber(0,App.data[0].length);	//array!
 	var name = $('#input-name').val();
@@ -12,7 +14,19 @@ App.getResult = function() {
 		$('#input-name').focus();
 		return null;
 	} else {
-		return name+"님의 전생의 원수는 "+ App.data[0][rnd] + "입니다.";
+		var result = App.result;
+		var vars = [
+			name,
+			App.data[0][rnd]
+		];
+		for(i=0; i<vars.length; i++) {
+			pattern = "\%var"+(i+1)+"\%";
+			var regexp = new RegExp(pattern, "gi");
+			result = result.replace(regexp, vars[i]);
+		}
+		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+JSON.stringify(vars);
+		
+		return result;
 	}
 }
 App.data = [

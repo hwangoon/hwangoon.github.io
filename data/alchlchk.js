@@ -14,6 +14,8 @@ App.input = '<select id="input-type" class="select-input">'+
 	'<option>꼬냑</option>'+
 	'</select>'+
 	'<input text="text" placeholder="이름을 입력해주세요." id="input-name" class="text-input" required="true">';
+App.result = "%var1%님의 %var2% 주량은 %var3%%var4%입니다.";
+App.resultUrl = window.location;
 App.getResult = function() {
 	var rnd = getRandomNumber(0,App.data[0].length);	//array!
 	var rnd1 = getRandomNumber(1, 10);	//array!
@@ -29,7 +31,21 @@ App.getResult = function() {
 		$('#input-name').focus();
 		return null;
 	} else {
-		return name+"님의 "+type+" 주량은 "+rnd1+App.data[0][rnd]+"입니다.";
+		var result = App.result;
+		var vars = [
+			name,
+			type,
+			rnd1,
+			App.data[0][rnd]
+		];
+		for(i=0; i<vars.length; i++) {
+			pattern = "\%var"+(i+1)+"\%";
+			var regexp = new RegExp(pattern, "gi");
+			result = result.replace(regexp, vars[i]);
+		}
+		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+JSON.stringify(vars);
+		
+		return result;
 	}
 }
 App.data = [

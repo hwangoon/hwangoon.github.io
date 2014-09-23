@@ -10,6 +10,8 @@ App.input = '<select id="input-type" class="select-input">'+
 	'<option>AB</option>'+
 	'</select>'+
 	'<input text="text" placeholder="이름을 입력해주세요." id="input-name" class="text-input" required="true">';
+App.result = "%var1%형인 %var2%님에게 어울리는 키워드는 '%var3%', '%var4%', '%var5%', '%var6%'입니다.";
+App.resultUrl = window.location;
 App.getResult = function() {
 	var rnd = [];
 	rnd[0] = getRandomNumber(0,App.data[0].length);	//array!
@@ -28,11 +30,23 @@ App.getResult = function() {
 		$('#input-name').focus();
 		return null;
 	} else {
-		return type+"형인 "+name+"님에게 어울리는 키워드는 '"+
-		App.data[0][rnd[0]]+"', '"+
-		App.data[1][rnd[1]]+"', '"+
-		App.data[2][rnd[2]]+"', '"+
-		App.data[3][rnd[3]]+"'입니다.";
+		var result = App.result;
+		var vars = [
+			type,
+			name,
+			App.data[0][rnd[0]],
+			App.data[1][rnd[1]],
+			App.data[2][rnd[2]],
+			App.data[3][rnd[3]]
+		];
+		for(i=0; i<vars.length; i++) {
+			pattern = "\%var"+(i+1)+"\%";
+			var regexp = new RegExp(pattern, "gi");
+			result = result.replace(regexp, vars[i]);
+		}
+		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+JSON.stringify(vars);
+		
+		return result;
 	}
 }
 App.data = [
