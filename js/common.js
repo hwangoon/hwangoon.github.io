@@ -82,10 +82,21 @@ var getResult = function(type) {
 			});
 		} else if(type == "fb") {
 			//페이스북
-			FB.ui({
-			  method: 'share',
-			  href: App.resultUrl,
-			}, function(response){ console.log(response); });
+			FB.getLoginStatus(function(response) {
+			  if (response.status === 'connected') {
+				FB.ui({
+				  method: 'share',
+				  href: App.resultUrl,
+				}, function(response){ console.log(response); });
+			  }
+			  else {
+				FB.login(function(){
+					FB.api('/me/feed', 'post', {
+						message: 'Hello, world!'
+					});
+				}, {scope: 'publish_actions'});
+			  }
+			});
 
 		} else if(type == "tw") {
 			//트위터
