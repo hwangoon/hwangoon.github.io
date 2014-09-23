@@ -156,6 +156,8 @@ var checkLoadFile = function(filename, filetype, cb){
 		cb();
 		timer = setInterval("checkInited()", 300);
 		//
+	} else {
+		filesadded = '';
 	}
  }
  else
