@@ -82,22 +82,10 @@ var getResult = function(type) {
 			});
 		} else if(type == "fb") {
 			//페이스북
-			FB.getLoginStatus(function(response) {
-			  if (response.status === 'connected') {
-				FB.ui({
-				  method: 'share',
-				  href: App.resultUrl,
-				}, function(response){ console.log(response); });
-			  }
-			  else {
-				FB.login(function(){
-					FB.api('/me/feed', 'post', {
-						message: 'Hello, world!'
-					});
-				}, {scope: 'publish_actions'});
-			  }
-			});
-
+			window.location.href = "https://www.facebook.com/dialog/share?"+
+			"app_id=264001293758406&display=popup&"+
+			"href="+App.resultUrl+"&"+
+			"redirect_uri="+App.resultUrl;
 		} else if(type == "tw") {
 			//트위터
 
