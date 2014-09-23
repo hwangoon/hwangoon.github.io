@@ -82,6 +82,10 @@ var getResult = function(type) {
 			});
 		} else if(type == "fb") {
 			//페이스북
+			FB.ui({
+			  method: 'share',
+			  href: App.resultUrl,
+			}, function(response){ console.log(response); });
 
 		} else if(type == "tw") {
 			//트위터
