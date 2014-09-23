@@ -84,7 +84,7 @@ var getResult = function(type) {
 			//페이스북
 			FB.ui({
 			  method: 'share',
-			  href: App.resultUrl,
+			  href: encodeURIComponent(App.resultUrl),
 			}, function(response){ console.log(response); });
 
 		} else if(type == "tw") {
