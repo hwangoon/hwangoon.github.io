@@ -4,7 +4,7 @@ var TYPE;
 var CURRENT_URL = window.location.toString();
 $(document).ready(function() {
 	APPNAME = getParm('name');
-	TYPE = getParm('type') ? decodeURIComponent(getParm('type')) : 'play';
+	TYPE = getParm('type') ? getParm('type') : 'play';
 	
 	var list = '';
 	if(typeof List != 'undefined') {
@@ -43,7 +43,7 @@ $(document).ready(function() {
 var init = function() {
 	if(TYPE == 'result') {
 		var result = App.result;
-		var vars = JSON.parse(getParm('vars'));
+		var vars = JSON.parse(decodeURIComponent(getParm('vars')));
 		for(i=0; i<vars.length; i++) {
 			pattern = "\%var"+(i+1)+"\%";
 			var regexp = new RegExp(pattern, "gi");
