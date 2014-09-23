@@ -2,6 +2,8 @@ var timer;
 var APPNAME;
 var TYPE;
 var CURRENT_URL = window.location.toString();
+var INITED = false;
+
 $(document).ready(function() {
 	APPNAME = getParm('name');
 	TYPE = getParm('type') ? getParm('type') : 'play';
@@ -59,6 +61,20 @@ var init = function() {
 	$('#app-title').text(App.title);
 	$('#app-desc').text(App.desc);
 	$('#app-input').html(App.input);
+	
+	if($('#app-title').text() == App.title) {
+		INITED = true;
+	}
+};
+
+var checkInited = function() {
+	if(INITED == false) {
+		init();
+		return false;
+	} else {
+		clearInterval(timer);
+		return true;
+	}
 }
 
 var getResult = function(type) {
@@ -104,17 +120,17 @@ var getResult = function(type) {
 
 		}
 	}
-}
+};
 
 //utilities
-function getParm(name) {
+var getParm = function(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+};
 
-function loadFile(filename, filetype){
+var loadFile = function(filename, filetype){
  if (filetype=="js"){ //if filename is a external JavaScript file
   var fileref=document.createElement('script')
   fileref.setAttribute("type","text/javascript")
@@ -128,27 +144,29 @@ function loadFile(filename, filetype){
  }
  if (typeof fileref!="undefined")
   document.getElementsByTagName("head")[0].appendChild(fileref)
-}
+};
 
 var filesadded=""
-function checkLoadFile(filename, filetype, cb){
+var checkLoadFile = function(filename, filetype, cb){
  if (filesadded.indexOf("["+filename+"]")==-1){
 	loadFile(filename, filetype)
 	filesadded+="["+filename+"]" //List of files added in the form "[filename1],[filename2],etc"
 	if(typeof App != 'undefined') {
 		clearInterval(timer);
-		cb();
+		
+		timer = setInterval("checkInited()", 300);
+		//cb();
 	}
  }
  else
   return null;
-}
+};
 
-function getRandomNumber(start, end) {
+var getRandomNumber = function(start, end) {
 	return Math.floor((Math.random() * end) % end + start);
-}
+};
 
-function is_mobile(){
+var is_mobile = function(){
 	if(navigator.userAgent.match(/Android/i)||navigator.userAgent.match(/webOS/i)||
 		navigator.userAgent.match(/iPhone/i)||navigator.userAgent.match(/iPad/i)||
 		navigator.userAgent.match(/iPod/i)||navigator.userAgent.match(/BlackBerry/i)||
@@ -157,11 +175,11 @@ function is_mobile(){
 	}else{
 		return false;
 	}
-}
+};
 
 //+ Jonas Raoni Soares Silva
 //@ http://jsfromhell.com/array/shuffle [v1.0]
-function array_shuffle(o){ //v1.0
+var array_shuffle = function(o){ //v1.0
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
 };
