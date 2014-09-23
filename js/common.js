@@ -153,9 +153,9 @@ var checkLoadFile = function(filename, filetype, cb){
 	filesadded+="["+filename+"]" //List of files added in the form "[filename1],[filename2],etc"
 	if(typeof App != 'undefined') {
 		clearInterval(timer);
-		
+		cb();
 		timer = setInterval("checkInited()", 300);
-		//cb();
+		//
 	}
  }
  else
