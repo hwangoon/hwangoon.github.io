@@ -44,8 +44,8 @@ App.getResult = function() {
 			var regexp = new RegExp(pattern, "gi");
 			result = result.replace(regexp, vars[i]);
 		}
-		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+JSON.stringify(vars);
-		
+		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+encodeURIComponent(JSON.stringify(vars));
+
 		return result;
 	}
 }

@@ -25,8 +25,8 @@ App.getResult = function() {
 			var regexp = new RegExp(pattern, "gi");
 			result = result.replace(regexp, vars[i]);
 		}
-		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+JSON.stringify(vars);
-		
+		App.resultUrl = CURRENT_URL.replace(/&.+/,'')+'&type=result&vars='+encodeURIComponent(JSON.stringify(vars));
+
 		return result;
 		//return name+"님은 "+rnd+"%의 선과 "+(100-rnd)+"%의 악으로 이루어져 있습니다.";
 	}
