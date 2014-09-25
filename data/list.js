@@ -7,5 +7,6 @@ var List = [
 	["blood_keyword", "내 혈액형에 어울리는 키워드"],
 	["lol_tier", "다음시즌 나의 롤 티어는?"],
 	["gayscore", "게이 확률 계산기"],
-	["lifemoney", "내가 평생 모을 수 있는 돈은?"]
+	["lifemoney", "내가 평생 모을 수 있는 돈은?"],
+	["mycity", "내가 살게 될 지역"]
 ];
