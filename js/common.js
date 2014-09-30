@@ -104,6 +104,10 @@ var getResult = function(type) {
 			"redirect_uri="+App.resultUrl;
 		} else if(type == "tw") {
 			//트위터
+            window.location.href = 'https://twitter.com/intent/tweet?'+
+                'original_referer='+encodeURIComponent(App.resultUrl)+
+                '&text='+encodeURIComponent('['+App.title+'] 실행결과 \n')+
+                '&url='+encodeURIComponent(App.resultUrl);
 
 		} else if(type == "kt") {
 			//카카오톡
