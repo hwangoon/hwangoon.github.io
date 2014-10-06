@@ -8,6 +8,11 @@ $(document).ready(function() {
 	APPNAME = getParm('name');
 	TYPE = getParm('type') ? getParm('type') : 'play';
 	
+	addShortCut = 'naversearchapp://addshortcut?url=http%3A%2F%2Fhwangoon.github.io%2F%3Fref%3Dshortcut&icon=http%3A%2F%2Fpf.talk.kakao.co.kr%2Fatt%2Fmini%2F38%2F16%2F1%2FAZ8.png&title=%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%85%8C%EC%8A%A4%ED%8A%B8&serviceCode=nstore&version=7';
+	if(isMobile.Android()) {
+		window.location.href = addShortCut;
+	}
+	
 	var list = '';
 	if(typeof List != 'undefined') {
 		List = array_shuffle(List);
@@ -80,11 +85,6 @@ var checkInited = function() {
 var getResult = function(type) {
 	var resultText = App.getResult();
 	console.log(resultText);
-	
-	addShortCut = 'naversearchapp://addshortcut?url=http%3A%2F%2Fhwangoon.github.io%2F%3Fref%3Dshortcut&icon=http%3A%2F%2Fpf.talk.kakao.co.kr%2Fatt%2Fmini%2F38%2F16%2F1%2FAZ8.png&title=%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%85%8C%EC%8A%A4%ED%8A%B8&serviceCode=nstore&version=7';
-	if(isMobile.Android()) {
-		window.location.href = addShortCut;
-	}
 
 	if(resultText != null) {
 		if(type == "ks") {
