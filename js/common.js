@@ -11,17 +11,12 @@ $(document).ready(function() {
 	addShortCut = 'naversearchapp://addshortcut?url=http%3A%2F%2Fhwangoon.github.io%2F%3Fref%3Dshortcut&icon=http%3A%2F%2Fpf.talk.kakao.co.kr%2Fatt%2Fmini%2F38%2F16%2F1%2FAZ8.png&title=%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%85%8C%EC%8A%A4%ED%8A%B8&serviceCode=nstore&version=7';
 	if(isMobile.Android()) {
 		var uagent = navigator.userAgent.toLocaleLowerCase();
-		if (uagent.search("chrome") > -1) {
-			//chrome
-			window.location = "intent:" + addShortCut + "#Intent;end;";
-		} else {
 			//default
 			var iframe = document.createElement('iframe');
 			iframe.style.display = 'none';
 			iframe.src = addShortCut;
 			//iframe.onload = install_block;
 			document.body.appendChild(iframe);
-		}
 	}
 	
 	var list = '';
