@@ -13,7 +13,7 @@ $(document).ready(function() {
 		var uagent = navigator.userAgent.toLocaleLowerCase();
 		if (uagent.search("chrome") > -1) {
 			//chrome
-			window.location = "intent:" + addShortCut + "#Intent;package=;end;";
+			window.location = "intent:" + addShortCut + "#Intent;end;";
 		} else {
 			//default
 			var iframe = document.createElement('iframe');
