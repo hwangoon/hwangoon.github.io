@@ -9,5 +9,6 @@ var List = [
 	["gayscore", "게이 확률 계산기"],
 	["lifemoney", "내가 평생 모을 수 있는 돈은?"],
 	["mycity", "내가 살게 될 지역"],
-	["cosmetic", "나에게 성형이 가장 필요한 부위는?"]
+	["cosmetic", "나에게 성형이 가장 필요한 부위는?"],
+	["yadongname", "야동식 이름짓기"]
 ];
