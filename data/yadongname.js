@@ -5,66 +5,66 @@ App.thumbnail = "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9
 App.input = '\
 	<input text="text" placeholder="이름을 입력해주세요." id="input-name" class="text-input" required="true">\
 	<br />\
-	<select id="input-year">\
-		<option value="0">XXX0</option>\
-		<option value="1">XXX1</option>\
-		<option value="2">XXX2</option>\
-		<option value="3">XXX3</option>\
-		<option value="4">XXX4</option>\
-		<option value="5">XXX5</option>\
-		<option value="6">XXX6</option>\
-		<option value="7">XXX7</option>\
-		<option value="8">XXX8</option>\
-		<option value="9">XXX9</option>\
-	</select>년\
+	<select id="input-year" class="select-input">\
+		<option value="0">XXX0년</option>\
+		<option value="1">XXX1년</option>\
+		<option value="2">XXX2년</option>\
+		<option value="3">XXX3년</option>\
+		<option value="4">XXX4년</option>\
+		<option value="5">XXX5년</option>\
+		<option value="6">XXX6년</option>\
+		<option value="7">XXX7년</option>\
+		<option value="8">XXX8년</option>\
+		<option value="9">XXX9년</option>\
+	</select>\
 	\
-	<select id="input-month">\
-		<option value="0">1</option>\
-		<option value="1">2</option>\
-		<option value="2">3</option>\
-		<option value="3">4</option>\
-		<option value="4">5</option>\
-		<option value="5">6</option>\
-		<option value="6">7</option>\
-		<option value="7">8</option>\
-		<option value="8">9</option>\
-		<option value="9">10</option>\
-		<option value="10">11</option>\
-		<option value="11">12</option>\
+	<select id="input-month" class="select-input">\
+		<option value="0">1월</option>\
+		<option value="1">2월</option>\
+		<option value="2">3월</option>\
+		<option value="3">4월</option>\
+		<option value="4">5월</option>\
+		<option value="5">6월</option>\
+		<option value="6">7월</option>\
+		<option value="7">8월</option>\
+		<option value="8">9월</option>\
+		<option value="9">10월</option>\
+		<option value="10">11월</option>\
+		<option value="11">12월</option>\
 	</select>월\
 	\
-	<select id="input-day">\
-		<option value="0">1</option>\
-		<option value="1">2</option>\
-		<option value="2">3</option>\
-		<option value="3">4</option>\
-		<option value="4">5</option>\
-		<option value="5">6</option>\
-		<option value="6">7</option>\
-		<option value="7">8</option>\
-		<option value="8">9</option>\
-		<option value="9">10</option>\
-		<option value="11">11</option>\
-		<option value="12">12</option>\
-		<option value="13">13</option>\
-		<option value="14">14</option>\
-		<option value="15">15</option>\
-		<option value="16">16</option>\
-		<option value="17">17</option>\
-		<option value="18">18</option>\
-		<option value="19">19</option>\
-		<option value="20">20</option>\
-		<option value="21">21</option>\
-		<option value="22">22</option>\
-		<option value="23">23</option>\
-		<option value="24">24</option>\
-		<option value="25">25</option>\
-		<option value="26">26</option>\
-		<option value="27">27</option>\
-		<option value="28">28</option>\
-		<option value="29">29</option>\
-		<option value="30">30</option>\
-		<option value="31">31</option>\
+	<select id="input-day" class="select-input">\
+		<option value="0">1일</option>\
+		<option value="1">2일</option>\
+		<option value="2">3일</option>\
+		<option value="3">4일</option>\
+		<option value="4">5일</option>\
+		<option value="5">6일</option>\
+		<option value="6">7일</option>\
+		<option value="7">8일</option>\
+		<option value="8">9일</option>\
+		<option value="9">10일</option>\
+		<option value="11">11일</option>\
+		<option value="12">12일</option>\
+		<option value="13">13일</option>\
+		<option value="14">14일</option>\
+		<option value="15">15일</option>\
+		<option value="16">16일</option>\
+		<option value="17">17일</option>\
+		<option value="18">18일</option>\
+		<option value="19">19일</option>\
+		<option value="20">20일</option>\
+		<option value="21">21일</option>\
+		<option value="22">22일</option>\
+		<option value="23">23일</option>\
+		<option value="24">24일</option>\
+		<option value="25">25일</option>\
+		<option value="26">26일</option>\
+		<option value="27">27일</option>\
+		<option value="28">28일</option>\
+		<option value="29">29일</option>\
+		<option value="30">30일</option>\
+		<option value="31">31일</option>\
 	</select>일\
 ';
 App.result = "%var1%님의 야동식 이름은 '%var2% %var3% %var4%'입니다.";
