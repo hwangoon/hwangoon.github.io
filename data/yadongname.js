@@ -3,8 +3,6 @@ App.title = "야동식 이름짓기";
 App.desc = "내 야동식 이름은? ㅋㅋ 결과는 재미로 봐주세요 ^^";
 App.thumbnail = "https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10360205_1512302872351604_3954709963097402839_n.png?oh=374b50c6a778e181848fa4ec90d0ebbf&oe=54BBAC18&__gda__=1421778209_587aec0aac564dc3c632171f58a94de9";
 App.input = '\
-	<input text="text" placeholder="이름을 입력해주세요." id="input-name" class="text-input" required="true">\
-	<br />\
 	<select id="input-year" class="select-input">\
 		<option value="0">XXX0년</option>\
 		<option value="1">XXX1년</option>\
@@ -17,7 +15,7 @@ App.input = '\
 		<option value="8">XXX8년</option>\
 		<option value="9">XXX9년</option>\
 	</select>\
-	\
+	<br />\
 	<select id="input-month" class="select-input">\
 		<option value="0">1월</option>\
 		<option value="1">2월</option>\
@@ -31,8 +29,8 @@ App.input = '\
 		<option value="9">10월</option>\
 		<option value="10">11월</option>\
 		<option value="11">12월</option>\
-	</select>월\
-	\
+	</select>\
+	<br />\
 	<select id="input-day" class="select-input">\
 		<option value="0">1일</option>\
 		<option value="1">2일</option>\
@@ -65,7 +63,9 @@ App.input = '\
 		<option value="29">29일</option>\
 		<option value="30">30일</option>\
 		<option value="31">31일</option>\
-	</select>일\
+	</select>\
+	<br />\
+	<input text="text" placeholder="이름을 입력해주세요." id="input-name" class="text-input" required="true">\
 ';
 App.result = "%var1%님의 야동식 이름은 '%var2% %var3% %var4%'입니다.";
 App.resultUrl = window.location;
