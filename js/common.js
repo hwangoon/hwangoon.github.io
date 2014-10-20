@@ -118,9 +118,9 @@ var getResult = function(type) {
 			"app_id=457408721067962&"+
 			"link="+encodeURIComponent(App.resultUrl)+"&"+
 			"picture="+encodeURIComponent(App.thumbnail)+"&"+
-			"name="+encodeURIComponent(App.title)+"&"+
-			"caption="+encodeURIComponent("카카오테스트")+"&"+
-			"description="+encodeURIComponent('['+App.title+'] 실행결과\n'+resultText)+"&"+
+			"name="+encodeURIComponent('카카오테스트 - ' + App.title)+"&"+
+			"caption="+encodeURIComponent('['+App.title+'] 실행결과')+"&"+
+			"description="+encodeURIComponent(resultText)+"&"+
 			//"message="+encodeURIComponent(resultText)+"&"+
 			"redirect_uri="+encodeURIComponent(App.resultUrl);
 			/*
