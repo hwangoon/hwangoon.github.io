@@ -121,7 +121,7 @@ var getResult = function(type) {
 			"name="+'카카오테스트 - ' + App.title+"&"+
 			"caption="+App.title+' 실행결과'+"&"+
 			"description="+resultText+"&"+
-			"message="+resultText+"&"+
+			//"message="+resultText+"&"+
 			"redirect_uri="+encodeURIComponent(App.resultUrl);
 			/*
 				http://www.facebook.com/dialog/feed?
