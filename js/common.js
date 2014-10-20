@@ -115,6 +115,7 @@ var getResult = function(type) {
 		} else if(type == "fb") {
 			//페이스북
 			window.location.href = "https://www.facebook.com/dialog/share?"+
+			"app_id=457408721067962&"
 			"display=popup&"+
 			"href="+App.resultUrl+"&"+
 			"redirect_uri="+App.resultUrl;
