@@ -120,8 +120,8 @@ var getResult = function(type) {
 			"picture="+encodeURIComponent(App.thumbnail)+"&"+
 			"name="+encodeURIComponent(App.title)+"&"+
 			"caption="+encodeURIComponent("카카오테스트")+"&"+
-			"description="+encodeURIComponent('['+App.title+'] 실행결과')+"&"+
-			"message="+encodeURIComponent(resultText)+"&"+
+			"description="+encodeURIComponent('['+App.title+'] 실행결과\n'+resultText)+"&"+
+			//"message="+encodeURIComponent(resultText)+"&"+
 			"redirect_uri="+encodeURIComponent(App.resultUrl);
 			/*
 				http://www.facebook.com/dialog/feed?
