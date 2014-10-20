@@ -46,7 +46,7 @@ $(document).ready(function() {
 	if(is_mobile() == false) {
 		$('button.ks').hide();
 		$('button.kt').hide();
-		alert("카카오스토리, 카톡으로 결과보기 기능은 모바일에서만 가능합니다.");
+		//alert("카카오스토리, 카톡으로 결과보기 기능은 모바일에서만 가능합니다.");
 	}
 	if(APPNAME != null && APPNAME != '') {
 		loadFile('./data/'+APPNAME+'.js', 'js');
@@ -115,7 +115,7 @@ var getResult = function(type) {
 		} else if(type == "fb") {
 			//페이스북
 			window.location.href = "https://www.facebook.com/dialog/share?"+
-			"app_id=457408721067962&"
+			"app_id=457408721067962&"+
 			"display=popup&"+
 			"href="+App.resultUrl+"&"+
 			"redirect_uri="+App.resultUrl;
