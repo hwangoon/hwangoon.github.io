@@ -114,11 +114,33 @@ var getResult = function(type) {
 			});
 		} else if(type == "fb") {
 			//페이스북
+			window.location.href = "https://www.facebook.com/dialog/feed?"+
+			"app_id=457408721067962&"+
+			"link="+encodeURIComponent(App.resultUrl)+"&"+
+			"picture="+encodeURIComponent(App.thumbnail)+"&"+
+			"name="+encodeURIComponent(App.title)+"&"+
+			"caption="+encodeURIComponent("카카오테스트")+"&"+
+			"description="+encodeURIComponent('['+App.title+'] 실행결과')+"&"+
+			"message="+encodeURIComponent(resultText)+"&"+
+			"redirect_uri="+encodeURIComponent(App.resultUrl);
+			/*
+				http://www.facebook.com/dialog/feed?
+			  app_id=123050457758183&
+			  link=http://developers.facebook.com/docs/reference/dialogs/&
+			  picture=http://fbrell.com/f8.jpg&
+			  name=Facebook%20Dialogs&
+			  caption=Reference%20Documentation&
+			  description=Dialogs%20provide%20a%20simple,%20consistent%20interface%20for%20applications%20to%20interact%20with%20users.&
+			  message=Facebook%20Dialogs%20are%20so%20easy!&
+			  redirect_uri=http://www.example.com/response
+			*/
+			/*
 			window.location.href = "https://www.facebook.com/dialog/share?"+
 			"app_id=457408721067962&"+
 			"display=popup&"+
 			"href="+encodeURIComponent(App.resultUrl)+"&"+
 			"redirect_uri="+encodeURIComponent(App.resultUrl);
+			*/
 		} else if(type == "tw") {
 			//트위터
             window.location.href = 'https://twitter.com/intent/tweet?'+
