@@ -117,8 +117,8 @@ var getResult = function(type) {
 			window.location.href = "https://www.facebook.com/dialog/share?"+
 			"app_id=457408721067962&"+
 			"display=popup&"+
-			"href="+App.resultUrl+"&"+
-			"redirect_uri="+App.resultUrl;
+			"href="+encodeURIComponent(App.resultUrl)+"&"+
+			"redirect_uri="+encodeURIComponent(App.resultUrl);
 		} else if(type == "tw") {
 			//트위터
             window.location.href = 'https://twitter.com/intent/tweet?'+
