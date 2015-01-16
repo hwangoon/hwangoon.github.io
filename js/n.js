@@ -41,7 +41,7 @@ var kakaoNaksi = function() {
 		},
 		'webButton': {
 			'text': messages[randomNumber][1],
-			'url': 'http://lul.lu/n'+randomNumber2+'.jpg'
+			'url': 'http://lul.lu/n'+randomNumber2+'.html'
 		}
 	};
 	
