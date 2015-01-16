@@ -1,14 +1,16 @@
 <!doctype html>
-<html>
+<html lang="ko">
 <head>
-<title>카카오테스트</title>
+<title>개이득 첫화면 - LUL.LU</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
 
-<meta property="og:title" content="카카오테스트" />
+<meta property="og:title" content="개이득 첫화면 - LUL.LU" />
 <meta property="og:type" content="website" />
+<!--
 <meta property="og:image" content="https://fbcdn-photos-e-a.akamaihd.net/hphotos-ak-xap1/t39.2081-0/10734298_469308746544626_1776548735_n.jpg" />
+-->
 <meta property="og:ttl" content="60" />
 <meta property="fb:app_id" content="457408721067962" />
 
@@ -32,77 +34,111 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div class="container">
 	<div id="fb-root"></div>
-	
-	<!--
-	<div class="header">
-		카카오테스트
-	</div>
-	-->
-	<!-- lullu_320x50 -->
-	<div class="adwrap">
-    <!-- responsive -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4734613993143962"
-         data-ad-slot="2260716134"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-	</div>
-  
-  <div class="content result">
-    <h1 id="result-app-title">결과 타이틀 로딩중</h1>
-    <h3 id="result-body">결과 내용 로딩중</h3>
+  <div class="row">
+    <h3 class="text-center">
+      개이득 첫화면
+    </h3>
+    
+    <div class="col-xs-6">
+      <!--구글검색창-->
+      <form name="google-search" class="form-inline" 
+        onsubmit="$('#google-search-q').val($('#google-search-input').val()); $('#google-search-input').val('');"
+        action=http://www.google.co.kr/search method=get>
+        <input type="hidden" name="q" value="" id="google-search-q">
+        <div class="form-group">
+          <input type="text" id="google-search-input"
+            class="form-control input-lg" placeholder="구글 검색" />
+        </div>
+      </form>
+      <!--구글검색창-->
+    </div>
+    
+    <div class="col-xs-6">
+      <!--네이버검색창-->
+      <form name="naver-search" class="form-inline"
+        onsubmit="$('#naver-search-q').val($('#naver-search-input').val()); $('#naver-search-input').val('');"
+        method="get" action="http://search.naver.com/search.naver">
+        <input type="hidden" name="where" value="nexearch">
+        <input type="hidden" name="sm" value="top_hty">
+        <input type="hidden" name="fbm" value="1">
+        <input type="hidden" name="ie" value="utf8">
+        <input type="hidden" name="query" value="" id="naver-search-q">
+        <div class="form-group">
+          <input type="text" id="naver-search-input"
+            class="form-control input-lg" placeholder="네이버 검색" />
+        </div>
+      </form>
+      <!--네이버검색창-->
+    </div>
+    
+    <div class="col-xs-12 text-justify">
+      <button class="btn btn-warning">
+        <a href="#" id="kakao-naksi">
+          카톡낚시
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="#" id="kakao-terror">
+          카톡테러
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="./mini-game.html">
+          미니게임
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://facebook.com">
+          페이스북
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="https://story.kakao.com">
+          카카오스토리
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://www.inven.co.kr">
+          인벤
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://www.afreeca.com">
+          아프리카TV
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://youtube.com">
+          유투브
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://www.hangame.com">
+          한게임
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://comic.naver.com">
+          네이버웹툰
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://webtoon.daum.net">
+          다음웹툰
+        </a>
+      </button>
+      <button class="btn btn-default">
+        <a href="http://jr.naver.com">
+          쥬니버
+        </a>
+      </button>
+    </div>
+    
+    
   </div>
 
-	<div class="content">
-		<h1 id="app-title">타이틀 로딩중</h1>
-		<p id="app-desc" class="description">컨텐츠 로딩중 - <a href="#" onclick="window.location.reload();">다시 로딩하기</a></p>
 
-		<div id="app-input"></div>
-
-		<button onclick="getResult('ks')" class="ks">카스로 결과보기</button>
-		<button onclick="getResult('fb')" class="fb">페북으로 결과보기</button>
-		<button onclick="getResult('tw')" class="tw">트위터로 결과보기</button>
-		<button onclick="getResult('kt')" class="kt">카톡 친구 초대</button>
-
-	</div>
-
-	<!-- lullu_320x50 -->
-	<div class="adwrap">
-    <!-- responsive -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4734613993143962"
-         data-ad-slot="2260716134"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-	</div>
-
-	<div class="list">
-		<h2>다른 테스트</h2>
-    <div class="list-group">
-    </div>
-	</div>
-  
-  
-	<!-- lullu_320x50 -->
-	<div class="adwrap">
-    <!-- responsive -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4734613993143962"
-         data-ad-slot="2260716134"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-	</div>
 </div>
-<div id="applinkDiv"></div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,8 +152,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="./js/kakao.link.js"></script>
-<script type="text/javascript" src="./data/list.js"></script>
-<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/n.js"></script>
+<!-- <script type="text/javascript" src="./js/common.js"></script> -->
 </body>
 </html>
