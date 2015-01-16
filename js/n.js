@@ -41,7 +41,7 @@ var kakaoNaksi = function() {
 		},
 		'webButton': {
 			'text': messages[randomNumber][1],
-			'url': 'http://kakao.lul.lu'
+			'url': 'http://lul.lu/n'+randomNumber2+'.jpg'
 		}
 	};
 	
@@ -79,7 +79,7 @@ var kakaoTerror = function() {
 		'label': str+'\n'+"'"+messages[Math.floor((Math.random() * messages.length) % messages.length + 0)]+"'를 찾아라!!!!",
 		'webButton': {
 			'text': '개이득 카톡테러 ㅋㅋㅋ',
-			'url': 'http://kakao.lul.lu'
+			'url': 'http://lul.lu'
 		}
 	};
 	
