@@ -1,4 +1,5 @@
 var List = [
+	["valentine", "내가 발렌타인데이에 초콜렛을 받을 확률은?"],
 	["fenermy", "전생의 원수"],
 	["greenlight", "그린라이트"],
 	["adscore", "선악지수 측정기"],
