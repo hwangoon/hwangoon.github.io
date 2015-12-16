@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="SHAKE IT!" />
+<meta property="og:description" content="흔들흔들어" />
+<meta property="og:url" content="http://lul.lu/shake/?from=facebook" />
+<meta property="og:image" content="http://lul.lu/shake/shake.png" />
+
+
+<title>Shake.js</title>
+<style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+  
+  background: #E9E9E9;
+  color: #333;
+  font: 1em/1.3em "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; /* 16px / 21px */
+  text-shadow: rgba(255,255,255,0.8) 0 1px 0;
+  text-align: center;
+}
+
+#count {
+  font-size: 3em;
+}
+
+#gage1 {
+  height:1em;
+  background-color: #F00;
+  width: 100%;
+  float: left;
+}
+#gage2 {
+  height:1em;
+  background-color: #E9E9E9;
+  width: 0%;
+  float: left;
+}
+
+#gage {
+  clear: both;
+  height:1em;
+}
+</style>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="shake.js"></script>
+
+</head>
+
+<body>
+<div id="gage">
+  <div id="gage1"></div>
+  <div id="gage2"></div>
+</div>
+
+<h2>
+  핸드폰을 흔들어주세요!
+</h2>
+<h1 id="count">
+0
+</h1>
+
+<button class="btn btn-lg" id="btnReset">다시 시작하기</button>
+
+<a id="kakao-link-btn" href="javascript:sendLink()">
+  <img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" />
+</a>
+
+<div id="kakaostory-follow-button"></div>
+
+<script>
+var count = 0;
+var time = 10;  // sec
+var currentTime = 0;
+var runCount = 0;
+var myTime; 
+var onPlay = true;
+
+window.onload = function() {
+  $("#kakao-link-btn").hide();
+  $("#btnReset").hide();
+  
+  //create a new instance of shake.js.
+  var myShakeEvent = new Shake({
+      threshold: 4,
+      timeout: 200
+  });
+  // start listening to device motion
+  myShakeEvent.start();
+  // register a shake event
+  window.addEventListener('shake', shakeEventDidOccur, false);
+  //shake event callback
+  function shakeEventDidOccur () {
+    //put your own code here etc.
+    //alert('Shake!');    
+    if(onPlay == true)
+      document.getElementById("count").innerHTML = ++count;
+    
+    if(count == 1) {
+      myTime = setInterval(function() {
+        runCount++;
+        if (runCount % 20 == 0) {
+          currentTime++;
+          console.log(runCount);
+        }
+        
+        if(currentTime == time) {
+          clearInterval(myTime);
+          onPlay = false;
+          //$("#kakao-link-btn").show();
+          
+          if(confirm("기록을 자랑하시겠습니까?")) {
+            sendLink();
+          }
+          
+          $("#btnReset").on('click', function() {
+            count = 0;
+            time = 10;  // sec
+            currentTime = 0;
+            runCount = 0;
+            onPlay = true;
+
+            document.getElementById("gage1").style.width = '100%';
+            document.getElementById("gage2").style.width = '0%';
+            document.getElementById("count").innerHTML = '0';
+            
+            $("#btnReset").hide();
+          }).show();
+        }
+        
+        w = 100 - ((runCount/20) / time * 100); 
+        document.getElementById("gage1").style.width = w+'%';
+        document.getElementById("gage2").style.width = (100-w)+'%';
+      }, 50);
+    }
+  }
+};
+
+
+// 사용할 앱의 JavaScript 키를 설정해 주세요.
+Kakao.init('f81cf98e8436fcde8f8490ab7ec425a1');
+
+// 스토리 구독 버튼을 생성합니다.
+Kakao.Story.createFollowButton({
+  container: '#kakaostory-follow-button',
+  id: 'jumpingnuts'
+});
+
+function sendLink() {
+  Kakao.Link.sendTalkLink({
+    label: 'Shake! 기록: ' + count + '회 달성!',
+    image: {
+      src: 'http://lul.lu/shake/shake.png',
+      width: 1280,
+      height: 670
+    },
+    webLink: {
+      text: 'Shake! 하러가기',
+      url: 'http://lul.lu/shake/?from=kakao'
+    }
+  });
+}
+
+</script>
+</body>
+</html>
